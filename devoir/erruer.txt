@@ -1,0 +1,16 @@
+Problème de mémoire :
+
+Le code effectue une boucle infinie, où des éléments sont ajoutés à un vecteur 
+(parameters) sans aucune libération de mémoire. Chaque itération de la boucle augmente 
+continuellement la taille du vecteur, ce qui entraîne une utilisation croissante de la mémoire. 
+Au bout d'un moment, la mémoire disponible sera épuisée, ce qui pourrait entraîner une erreur 
+du type std::bad_alloc (erreur d'allocation dynamique).
+
+solution:
+
+Pour éviter de consommer toute la mémoire, vous devez réinitialiser le vecteur à chaque itération 
+de la boucle afin de limiter sa taille et de libérer la mémoire précédemment utilisée.
+
+Si vous connaissez à l'avance le nombre d'éléments que vous allez insérer dans le vecteur
+ (ici, ParametreDeIcrementation), vous pouvez utiliser la fonction reserve() pour éviter 
+les réallocations répétées et améliorer les performances.
