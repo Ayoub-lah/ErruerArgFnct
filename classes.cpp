@@ -16,7 +16,7 @@ class voiture {
         voiture();
         voiture(string mar , string mo , int an , float kil , float vi);
         void accelerer(float valeur);
-        double freiner(float valeur);
+        void freiner(float valeur);
         void afficherInfo();
         void avancer(float distance);
         ~voiture();
@@ -30,12 +30,11 @@ void voiture::accelerer(float valeur){
      vitesse+=valeur;
 }
 
-double voiture::freiner(float valeur){
-    vitesse-=valeur;
+void voiture::freiner(float valeur){
     if (vitesse>0)
-        return vitesse;
+        vitesse-=valeur;
     else
-        return 0;
+        vitesse=valeur;
 }
 
 void voiture::afficherInfo(){
